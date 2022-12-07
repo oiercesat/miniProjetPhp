@@ -1,0 +1,19 @@
+h1{
+    text-align :center;
+}
+main{
+    display:flex;
+    align-items: center;
+    justify-content:center;
+}
+#zoneCD{
+    display:flex;
+    margin:20px 15%;
+}
+article{
+    width:min-content;
+    margin:30px;
+}
+article>h2, article>p{
+    text-align: center;
+}
