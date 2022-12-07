@@ -11,25 +11,25 @@
     ],
     "cd":[
         {
-            "genre":"",
-            "titre":"",
-            "auteur_groupe":"",
-            "prix":0,
-            "image":"image.jpg"
+            "genre":"Sombre",
+            "titre":"Dark bear",
+            "auteur_groupe":"Ourson polaire",
+            "prix":9.99,
+            "image":"img/pochettes/dark_bear.jpg"
         },
         {
-            "genre":"",
-            "titre":"",
-            "auteur_groupe":"",
-            "prix":0,
-            "image":"image.jpg"
+            "genre":"Rock",
+            "titre":"Mockup",
+            "auteur_groupe":"Thierry Hardisson",
+            "prix":12,
+            "image":"img/pochettes/mockup.jpg"
         },
         {
-            "genre":"",
-            "titre":"",
-            "auteur_groupe":"",
-            "prix":0,
-            "image":"image.jpg"
+            "genre":"Rap",
+            "titre":"What's new",
+            "auteur_groupe":"Megan Thee Stallion",
+            "prix":8.99,
+            "image":"img/pochettes/whats_new.jpg"
         }
     ]
 }
