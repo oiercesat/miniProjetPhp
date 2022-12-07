@@ -1,0 +1,35 @@
+{    
+    "utilisateurs":[
+        {
+            "id":"Nico",
+            "pass":"kouto"
+        },
+        {
+            "id":"Ohyeah",
+            "pass":"root"
+        }
+    ],
+    "cd":[
+        {
+            "genre":"",
+            "titre":"",
+            "auteur_groupe":"",
+            "prix":0,
+            "image":"image.jpg"
+        },
+        {
+            "genre":"",
+            "titre":"",
+            "auteur_groupe":"",
+            "prix":0,
+            "image":"image.jpg"
+        },
+        {
+            "genre":"",
+            "titre":"",
+            "auteur_groupe":"",
+            "prix":0,
+            "image":"image.jpg"
+        }
+    ]
+}
