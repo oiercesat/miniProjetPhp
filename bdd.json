@@ -15,21 +15,21 @@
             "titre":"Dark bear",
             "auteur_groupe":"Ourson polaire",
             "prix":9.99,
-            "image":"img/pochettes/dark_bear.jpg"
+            "image":"img/pochettes/dark_bear.jpeg"
         },
         {
             "genre":"Rock",
             "titre":"Mockup",
             "auteur_groupe":"Thierry Hardisson",
             "prix":12,
-            "image":"img/pochettes/mockup.jpg"
+            "image":"img/pochettes/mockup.jpeg"
         },
         {
             "genre":"Rap",
             "titre":"What's new",
             "auteur_groupe":"Megan Thee Stallion",
             "prix":8.99,
-            "image":"img/pochettes/whats_new.jpg"
+            "image":"img/pochettes/whats_new.jpeg"
         }
     ]
 }
