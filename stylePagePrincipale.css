@@ -9,6 +9,7 @@ main{
 #zoneCD{
     display:flex;
     margin:20px 15%;
+    flex-wrap: wrap;
 }
 article{
     width:min-content;
