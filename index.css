@@ -12,11 +12,10 @@ article{
     border: 3px black solid;
     padding: 5%;
     border-radius: 25px;
-    text-align: center;
 }
 
 form{
-    display: flex;
+    display: flex; 
     flex-direction: column;
 }
 
