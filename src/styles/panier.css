@@ -1,0 +1,60 @@
+body{
+    padding: 0%;
+    margin: 0%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+
+    font-size: 2em;
+
+    padding: 10px;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+
+    border-bottom: 2px black solid;
+}
+
+li{
+    display: inline;
+    list-style-type: none;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+    font-size: 0.75em;
+}
+
+main{
+    padding: 2.5%;
+}
+
+h1{
+    font-size: 3em;
+    padding-left: 2.5%;
+}
+
+article{
+
+    border: 2px lightgray solid;
+    border-radius: 20px;
+
+    padding: 2%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+img {
+
+    width: 25%;
+    border-radius: 10px;
+}
+
+
