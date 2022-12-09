@@ -11,8 +11,11 @@ $passwordValide = 'root';
 
         header('location: pagePrincipale.php');
         }
+        else {
+            header('location: index.html');            
+        }
     }
     else{
-    header('location: index.html');
+        header('location: index.html');            
     }
 ?>
