@@ -6,7 +6,7 @@
         },
         {
             "id":"Ohyeah",
-            "pass":"root"
+            "pass":"solide"
         }
     ],
     "cd":[
@@ -15,21 +15,28 @@
             "titre":"Dark bear",
             "auteur_groupe":"Ourson polaire",
             "prix":9.99,
-            "image":"img/pochettes/dark_bear.jpeg"
+            "image":"img/pochettes/dark_bear.png"
         },
         {
             "genre":"Rock",
             "titre":"Mockup",
             "auteur_groupe":"Thierry Hardisson",
             "prix":12,
-            "image":"img/pochettes/mockup.jpeg"
+            "image":"img/pochettes/mockup.png"
         },
         {
             "genre":"Rap",
             "titre":"What's new",
             "auteur_groupe":"Megan Thee Stallion",
             "prix":8.99,
-            "image":"img/pochettes/whats_new.jpeg"
+            "image":"img/pochettes/whats_new.png"
+        },
+        {
+            "genre":"Rap",
+            "titre":"TMax sur la bonne mère",
+            "auteur_groupe":"Jul le S",
+            "prix":51.43,
+            "image":"img/pochettes/TMax_sur_la_bonne_mere.png"
         }
     ]
 }
