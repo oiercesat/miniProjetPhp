@@ -6,7 +6,7 @@
         <title>Albums</title>
         <meta name="description" content="Page principale avec chaque album">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="stylePagePrincipale.css">
+        <link rel="stylesheet" href="styles/stylePagePrincipale.css">
     </head>
     <body>
         <header>
@@ -15,19 +15,18 @@
         <main>
             <?php
                 $nbImages = count(glob("img/pochettes/*" ));
-                $bdd = json_decode(file_get_contents("bdd.json"));
+                $bdd = json_decode(file_get_contents("datas/bdd.json"));
 
-                $html = '<section id="zoneCD">';            
+                $html = '<section id="containerZoneCD"><section id="zoneCD">';            
                 for ($i=0; $i < $nbImages; $i++) { 
                     $cdCourant = $bdd->{"cd"}[$i];
                     $html .= '<article>';
-                    // $html .= '<img src='.$cdCourant->{"image"}.'>';
-                    $html .= '<img src=generateurCD.php?cheminImage='.$cdCourant->{"image"}.'>';
+                    $html .= '<img src=scripts/generateurCD.php?cheminImage='.$cdCourant->{"image"}.'>';                  
                     $html .= '<h2>'.$cdCourant->{"titre"}."</h2>";
                     $html .= '<p>'.$cdCourant->{"auteur_groupe"}."</p>";
                     $html .= '</article>';
                 }                
-                $html .= '</section>';
+                $html .= '</section></section>';
 
                 echo $html;
             ?>

@@ -1,13 +1,15 @@
 <?php
-    define("larg_vign", 200);
-    define("long_vign", 200);
+    define("larg_vign", 150);
+    define("long_vign", 150);
 
-    header("Content-type: image/png");   
-    $image = imagecreatefrompng($_GET["cheminImage"]);       //$_GET["cheminImage"]
+    header("Content-type: image/png");
+    $src = '../'.$_GET["cheminImage"];
+    $image = imagecreatefrompng($src);
     $imgReduite = imagecreatetruecolor(larg_vign, long_vign);
-    // imageCopyResized($image, $imgReduite, 0,0,0,0, larg_vign, long_vign);
-    // $couleur = ImageColorAllocate($image,255,0,0);
+    $ancienneDimensions = getimagesize($src);
+    imageCopyResized($imgReduite, $image, 0,0,0,0, larg_vign, long_vign, $ancienneDimensions[0], $ancienneDimensions[1]);
     
-    imagejpeg($image);
-    imagedestroy($image);
+    imagepng($imgReduite);
+    imagedestroy($imgage);
+    imagedestroy($imgReduite);
 ?>
