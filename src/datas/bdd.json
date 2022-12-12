@@ -37,6 +37,27 @@
             "auteur_groupe":"Jul le S",
             "prix":51.43,
             "image":"img/pochettes/TMax_sur_la_bonne_mere.png"
+        },
+        {
+            "genre":"Rap",
+            "titre":"Au rapport",
+            "auteur_groupe":"Colonel Reyel",
+            "prix":13,
+            "image":"img/pochettes/au_rapport.png"
+        },
+        {
+            "genre":"Rap",
+            "titre":"Je t'aime tellement",
+            "auteur_groupe":"Keen V",
+            "prix":10,
+            "image":"img/pochettes/jtm_tellement_keen_v.png"
+        },
+        {
+            "genre":"Rap",
+            "titre":"Watch the Throne",
+            "auteur_groupe":"Jay-Z",
+            "prix":13,
+            "image":"img/pochettes/watch_the_throne.png"
         }
     ]
 }
