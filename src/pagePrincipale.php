@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,7 +7,7 @@
         <meta name="description" content="Page principale avec chaque album">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="styles/stylePagePrincipale.css">
-        <script src="scripts/modifPanier.js" async defer></script>
+        <!-- <script src="scripts/modifPanier.js" async defer></script> -->
         
     </head>
     <body>
@@ -17,20 +16,39 @@
         </header>
         <main>
             <?php
-                $nbImages = count(glob("img/pochettes/*" ));
+                session_start();        //A SUPPRIMER, LA SESSION DOIT ETRE LANCEE DPEUIS LA PAGE DE LOGIN
+                $_SESSION["cc"] = "Nico";
+
+                $nbImages = count(glob("img/pochettes/*"));
                 $bdd = json_decode(file_get_contents("datas/bdd.json"));
+                /**@warning retirer "Nico"*/
+                $panier = $bdd->{"utilisateurs"}->{"Nico"}->{"panier"};
 
                 $html = '<section id="zoneCD">';            
                 for ($i=0; $i < $nbImages; $i++) { 
                     $cdCourant = $bdd->{"cd"}[$i];
+                    
+                    //Recherche du nombre d article de ce type dans le panier
+                    $k = 0;                                 //Indice courant de recherche
+                    $nbDansPanier = 0;                      //Nombre d occurences
+                    $taillePanier = count($panier);
+                    while ($k != $taillePanier) {
+                        if ($panier[$k] == $i){
+                            //L indice pointe sur l element recherche
+                            $nbDansPanier += 1;
+                        }
+                        $k += 1;
+                    }
+                    
+                    
                     $html .= '<article>';
                     $html .= '<img src=scripts/generateurCD.php?cheminImage='.$cdCourant->{"image"}.'>';                  
                     $html .= '<h2>'.$cdCourant->{"titre"}."</h2>";
                     $html .= '<p>'.$cdCourant->{"auteur_groupe"}."</p>";
                     $html .= '<section class="zoneAjoutPanier">';
-                    $html .= '<button class="btnAjouterPanier btnPanier">+</button>';
-                    $html .= '<p class="nbArticlesPanier"> 0 </p>';
-                    $html .= '<button class="btnRetirerPanier btnPanier">-</button>';
+                    $html .= '<a class="btnAjouterPanier btnPanier" href="scripts/majArticlesPanier.php?id='.strval($i).'&action=add">+</a>';
+                    $html .= '<p class="nbArticlesPanier">'.$nbDansPanier.'</p>';
+                    $html .= '<a class="btnRetirerPanier btnPanier" href="scripts/majArticlesPanier.php?id='.strval($i).'&action=supp">-</a>';
                     $html .= '</section></article>';
                 }                
                 $html .= '</section>';
@@ -38,7 +56,7 @@
             ?>
 
             <nav id="zoneValidationPanier">
-                <button id="bValidationPanier">Valider le panier</button>
+                <a id="bValidationPanier" href="panier.html">Valider le panier</a>
             </nav>
 
             
