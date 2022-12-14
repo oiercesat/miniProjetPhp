@@ -44,9 +44,9 @@ article>p{
     justify-self: end;
 }
 article:hover{    
-    transform: scale(1.1);
+    /* transform: scale(1.1);
     -ms-transform: scale(1.1);
-    -webkit-transform: scale(1.1);
+    -webkit-transform: scale(1.1); */
 }
 nav{
     height:100%;
@@ -87,9 +87,14 @@ nav{
     border-radius: 14px;
     font-size: 18px;
     font-weight: bold;
+    box-sizing:border-box;
+    text-align:center;
+    text-decoration: none;
+    opacity: 0.6;
 }
 .btnPanier:hover{
     cursor:pointer;
+    opacity: 1;
 }
 .btnAjouterPanier{
     border-color: green;
