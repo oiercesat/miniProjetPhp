@@ -6,7 +6,7 @@
         <title>Albums</title>
         <meta name="description" content="Page principale avec chaque album">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="styles/stylePagePrincipale.css">
+        <link rel="stylesheet" href="styles/pagePrincipale.css">
         <!-- <script src="scripts/modifPanier.js" async defer></script> -->
         
     </head>
