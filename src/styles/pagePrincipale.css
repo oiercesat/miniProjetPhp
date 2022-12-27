@@ -33,7 +33,6 @@ article{
     padding:15px;
     margin:30px;
     justify-content: space-between;
-    /* box-shadow: 10px 10px black; */
 }
 article>h2, article>p{
     text-align: center;
@@ -44,9 +43,9 @@ article>p{
     justify-self: end;
 }
 article:hover{    
-    /* transform: scale(1.1);
+    transform: scale(1.1);
     -ms-transform: scale(1.1);
-    -webkit-transform: scale(1.1); */
+    -webkit-transform: scale(1.1);
 }
 nav{
     height:100%;
@@ -73,7 +72,7 @@ nav{
 .zoneAjoutPanier{
     background-color: inherit;
     display:flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items:center;
 }
 .zoneAjoutPanier > *, img{
@@ -82,21 +81,13 @@ nav{
 .zoneAjoutPanier > p{
     background-color: inherit;
 }
-.nbArticlesPanier{
-    width:2ch;
-    text-align: center;
-}
 .btnPanier{
-    margin:0px 20px;
     width: 28px;
     height:28px;
     border: 3px solid;
     border-radius: 14px;
     font-size: 18px;
     font-weight: bold;
-    box-sizing:border-box;
-    text-align:center;
-    text-decoration: none;
     opacity: 0.6;
 }
 .btnPanier:hover{

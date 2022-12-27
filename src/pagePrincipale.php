@@ -45,9 +45,9 @@
                     $html .= '<h2>'.$cdCourant->{"titre"}."</h2>";
                     $html .= '<p>'.$cdCourant->{"auteur_groupe"}."</p>";
                     $html .= '<section class="zoneAjoutPanier">';
-                    $html .= '<a class="btnAjouterPanier btnPanier" >+</a>';    //href="scripts/majArticlesPanier.php?id='.strval($i).'&action=add"
+                    $html .= '<button class="btnAjouterPanier btnPanier" >+</button>';    
                     $html .= '<p class="nbArticlesPanier">'.$nbDansPanier.'</p>';
-                    $html .= '<a class="btnRetirerPanier btnPanier" >-</a>';    //href="scripts/majArticlesPanier.php?id='.strval($i).'&action=remove"
+                    $html .= '<button class="btnRetirerPanier btnPanier" >-</button>';    
                     $html .= '</section></article>';
                 }                
                 $html .= '</section>';
