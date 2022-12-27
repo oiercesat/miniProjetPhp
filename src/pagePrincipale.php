@@ -7,7 +7,7 @@
         <meta name="description" content="Page principale avec chaque album">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="styles/pagePrincipale.css">
-        <!-- <script src="scripts/modifPanier.js" async defer></script> -->
+        <script src="scripts/modifPanier.js" async defer></script>
         
     </head>
     <body>
@@ -40,15 +40,14 @@
                         $k += 1;
                     }
                     
-                    
-                    $html .= '<article>';
+                    $html .= '<article id='.$i.'>';
                     $html .= '<img src=scripts/generateurCD.php?cheminImage='.$cdCourant->{"image"}.'>';                  
                     $html .= '<h2>'.$cdCourant->{"titre"}."</h2>";
                     $html .= '<p>'.$cdCourant->{"auteur_groupe"}."</p>";
                     $html .= '<section class="zoneAjoutPanier">';
-                    $html .= '<a class="btnAjouterPanier btnPanier" href="scripts/majArticlesPanier.php?id='.strval($i).'&action=add">+</a>';
+                    $html .= '<a class="btnAjouterPanier btnPanier" >+</a>';    //href="scripts/majArticlesPanier.php?id='.strval($i).'&action=add"
                     $html .= '<p class="nbArticlesPanier">'.$nbDansPanier.'</p>';
-                    $html .= '<a class="btnRetirerPanier btnPanier" href="scripts/majArticlesPanier.php?id='.strval($i).'&action=supp">-</a>';
+                    $html .= '<a class="btnRetirerPanier btnPanier" >-</a>';    //href="scripts/majArticlesPanier.php?id='.strval($i).'&action=remove"
                     $html .= '</section></article>';
                 }                
                 $html .= '</section>';
