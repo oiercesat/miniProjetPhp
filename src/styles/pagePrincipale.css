@@ -76,8 +76,15 @@ nav{
     justify-content: center;
     align-items:center;
 }
+.zoneAjoutPanier > *, img{
+    user-select: none;
+}
 .zoneAjoutPanier > p{
     background-color: inherit;
+}
+.nbArticlesPanier{
+    width:2ch;
+    text-align: center;
 }
 .btnPanier{
     margin:0px 20px;
