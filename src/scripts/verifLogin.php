@@ -1,21 +1,26 @@
 <?php
 
-$idValide = 'root';
-$passwordValide = 'root';
+$bdd= json_decode(file_get_contents("./../datas/bdd.json"));
+$utilisateurs = $bdd->{"utilisateurs"};
 
-    if (isset($_POST['id']) && isset($_POST['password'])) {
-        if ($_POST['id']==$idValide && $_POST['password']=$passwordValide) {
+if (isset($_POST['id']) && isset($_POST['password'])) {    
+    foreach ($utilisateurs as $utilisateur) {
+        if ($utilisateur->{"id"} == $_POST['id'] && $utilisateur->{"pass"} == $_POST['password']) {
             session_start();
-            $_SESSION['id'] = $_POST['id'];
-            $_SESSION['password'] = $_POST['password'];
+            $_SESSION["id"] = $_POST['id'];
+            header("Location: ./../pagePrincipale.php");
+            exit();
+        }
+    }
+    
+    header("Location: ./../../index.html");
+    exit();
 
-            header('location: ../pagePrincipale.php');
-        }
-        else {
-            header('location: index.html');            
-        }
-    }
-    else{
-        header('location: index.html');            
-    }
-?>
+}
+
+else {
+    header("Location: ./../../index.html");
+    exit();
+}
+
+
