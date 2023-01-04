@@ -12,6 +12,7 @@
     </head>
     <body>
         <header>
+            <h1>Albums</h1>
             <?php
                 // -- Initialisation page --
                 session_start();
@@ -30,8 +31,10 @@
                 if ($estConnecte){
                     // Utilisateur connecte   
                     $html .= "<a id='btnInscription' href='scripts/deconnect.php'>Se déconnecter</a>";
-                    $html .= '</section>';
                     $html .= '<a id="viderPanier" href="scripts/viderPanier.php?id='.$user.'">Vider panier</a>';
+                    $html .= '<a id="bValidationPanier" href="panier.php">Valider le panier</a>';
+                    $html .= '</section>';
+                    
                 }
                 else{
                     // Aucun utilisateur connecte
@@ -39,12 +42,9 @@
                     $html .= "<a id='btnInscription' href='../index.html'>Se login</a>";
                     $html .= '</section>';
                 }
-                
-                
 
                 echo $html;
             ?>
-            <h1>Albums</h1>
         </header>
         <main>
             <?php
@@ -91,53 +91,13 @@
                     }
                     $html .= '</section></article>';
                 }
-                $html .= '</section>';                
-                
-                // BOUTON VALIDER PANIER
-                $html .= '<nav id="zoneValidationPanier">';
-                if ($estConnecte){
-                    $html .= '<a id="bValidationPanier" href="panier.php">Valider le panier</a>';
-                }
-                $html .= '</nav>';
-            
+                $html .= '</section>';              
+
                 echo $html;
             ?>
 
             
         </main>
-        <footer>
-
-        $html = '<section id="zoneCD">';
-        for ($i = 0; $i < $nbImages; $i++) {
-            $cdCourant = $bdd->{"cd"}[$i];
-
-            //Recherche du nombre d article de ce type dans le panier
-            $k = 0;                                 //Indice courant de recherche
-            $nbDansPanier = 0;                      //Nombre d occurences
-            $taillePanier = count($panier);
-            while ($k != $taillePanier) {
-                if ($panier[$k] == $i) {
-                    //L indice pointe sur l element recherche
-                    $nbDansPanier += 1;
-                }
-                $k += 1;
-            }
-
-            $html .= '<article id=' . $i . '>';
-            $html .= '<img src=scripts/generateurCD.php?cheminImage=' . $cdCourant->{"image"} . '>';
-            $html .= '<h2>' . $cdCourant->{"titre"} . "</h2>";
-            $html .= '<p>' . $cdCourant->{"auteur_groupe"} . "</p>";
-            $html .= '<section class="zoneAjoutPanier">';
-            $html .= '<button class="btnAjouterPanier btnPanier" >+</button>';
-            $html .= '<p class="nbArticlesPanier">' . $nbDansPanier . '</p>';
-            $html .= '<button class="btnRetirerPanier btnPanier" >-</button>';
-            $html .= '</section></article>';
-        }
-        $html .= '</section>';
-        echo $html;
-        ?>
-
-    </main>
     <footer>
         <p>Projet php réalisé par Nicolas Delahaie et Oier Cesat</p>
     </footer>
