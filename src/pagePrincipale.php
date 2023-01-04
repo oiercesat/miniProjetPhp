@@ -12,45 +12,76 @@
     </head>
     <body>
         <header>
+            <?php
+                session_start();
+                $html = '<section id="zoneLogin">';
+                if (!(isset($_SESSION['id']))){
+                    // Aucun utilisateur connecte
+                    $html .= "<a id='btnInscription' href='pageInscription.html'>S'inscrire</a>";
+                    $html .= "<a id='btnInscription' href='../index.html'>Se login</a>";
+                    $html .= '</section>';
+                }
+                else{
+                    // Utilisateur connecte   
+                    $html .= "<a id='btnInscription' href='scripts/deconnect.php'>Se déconnecter</a>";
+                    $html .= '</section>';   
+                }
+                echo $html;
+            ?>
             <h1>Albums</h1>
         </header>
         <main>
             <?php
-                session_start();        //A SUPPRIMER, LA SESSION DOIT ETRE LANCEE DPEUIS LA PAGE DE LOGIN
-                $_SESSION["cc"] = "Nico";
+                $bdd = json_decode(file_get_contents("datas/bdd.json"));
+                $html = '';
+                if (!(isset($_SESSION['id'])))
+                {
+                    // Aucun utilisateur connecte
+                    $user = null;
+                }
+                else
+                {
+                    // Utilisateur connecte
+                    $user = $_SESSION['id'];    
+                    $panier = $bdd->{"utilisateurs"}->{"Nico"}->{"panier"};
+                }
 
                 $nbImages = count(glob("img/pochettes/*"));
-                $bdd = json_decode(file_get_contents("datas/bdd.json"));
-                /**@warning retirer "Nico"*/
-                $panier = $bdd->{"utilisateurs"}->{"Nico"}->{"panier"};
-
-                $html = '<section id="zoneCD">';            
+                $html .= '<section id="zoneCD">';            
                 for ($i=0; $i < $nbImages; $i++) { 
+                    //Pour chaque image
                     $cdCourant = $bdd->{"cd"}[$i];
                     
-                    //Recherche du nombre d article de ce type dans le panier
-                    $k = 0;                                 //Indice courant de recherche
-                    $nbDansPanier = 0;                      //Nombre d occurences
-                    $taillePanier = count($panier);
-                    while ($k != $taillePanier) {
-                        if ($panier[$k] == $i){
-                            //L indice pointe sur l element recherche
-                            $nbDansPanier += 1;
+                    if ($user != null)
+                    {
+                        //Recherche du nombre d article de ce type dans le panier
+                        $k = 0;                                 //Indice courant de recherche
+                        $nbDansPanier = 0;                      //Nombre d occurences
+                        $taillePanier = count($panier);
+                        while ($k != $taillePanier) {
+                            if ($panier[$k] == $i){
+                                //L indice pointe sur l element recherche
+                                $nbDansPanier += 1;
+                            }
+                            $k += 1;
                         }
-                        $k += 1;
                     }
+                    
                     
                     $html .= '<article id='.$i.'>';
                     $html .= '<img src=scripts/generateurCD.php?cheminImage='.$cdCourant->{"image"}.'>';                  
                     $html .= '<h2>'.$cdCourant->{"titre"}."</h2>";
                     $html .= '<p>'.$cdCourant->{"auteur_groupe"}."</p>";
                     $html .= '<section class="zoneAjoutPanier">';
-                    $html .= '<button class="btnAjouterPanier btnPanier" >+</button>';    
-                    $html .= '<p class="nbArticlesPanier">'.$nbDansPanier.'</p>';
-                    $html .= '<button class="btnRetirerPanier btnPanier" >-</button>';    
+                    if ($user != null){
+                        $html .= '<button class="btnAjouterPanier btnPanier" >+</button>';    
+                        $html .= '<p class="nbArticlesPanier">'.$nbDansPanier.'</p>';
+                        $html .= '<button class="btnRetirerPanier btnPanier" >-</button>';   
+                    }
                     $html .= '</section></article>';
-                }                
+                }
                 $html .= '</section>';
+                
                 echo $html;
             ?>
 
