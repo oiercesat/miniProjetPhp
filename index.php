@@ -44,7 +44,7 @@
                 else{
                     // Aucun utilisateur connecte
                     $html .= '<section id="zoneLogin">';
-                    $html .=    "<a id='btnConexion' href='src/pageConexion.html'>Se connecter</a>";
+                    $html .=    "<a id='btnConexion' href='src/pageConexion.php'>Se connecter</a>";
                     $html .= '</section>';
                     $html .= "<h1>Albums</h1>";
                     $html .= '<section id="zonePanier"></section>';

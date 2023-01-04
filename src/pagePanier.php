@@ -27,7 +27,7 @@ $panier = $bdd->{"utilisateurs"}->{$id}->{"panier"};
                 <a href="../index.php">Accueil</a>
             </li>
             <li>
-                <a href="scripts/deconnect.html">Deconnexion</a>
+                <a href="scripts/utilisateur/deconnect.php">Deconnexion</a>
             </li>
         </ul>
     </header>
