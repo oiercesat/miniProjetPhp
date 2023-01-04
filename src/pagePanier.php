@@ -41,7 +41,7 @@ $panier = $bdd->{"utilisateurs"}->{$id}->{"panier"};
             $quantite = $value;
             $rangCD = $key;
             echo "<article>";
-            echo "<img src='" . $cd[$rangCD]->{"image"} . "'>";
+            echo "<img src='datas/img/pochettes/" . $cd[$rangCD]->{"nom_image"} . "'>";
             echo "<section>";
             echo "<h2>Titre : " . $cd[$rangCD]->{"titre"} . "</h2>";
             echo "<h3> Auteur : " . $cd[$rangCD]->{"auteur_groupe"} . "</h3>";

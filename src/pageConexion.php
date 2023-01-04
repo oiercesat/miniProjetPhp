@@ -17,7 +17,7 @@
 <body>
     <article>
         <h1>Connectez-vous</h1>
-        <form action="scripts/utilisateur/ajouterUtilisateur.php" method="POST">
+        <form action="scripts/utilisateur/verifLogin.php" method="POST">
             <input type="text" name="id" placeholder="Votre id">
             <?php
             if (isset($erreur)) {
