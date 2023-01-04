@@ -30,9 +30,9 @@
                 $html = '<section id="zoneLogin">';
                 if ($estConnecte){
                     // Utilisateur connecte   
-                    $html .= "<a id='btnInscription' href='scripts/deconnect.php'>Se déconnecter</a>";
-                    $html .= '<a id="viderPanier" href="scripts/viderPanier.php">Vider panier</a>';
-                    $html .= '<a id="bValidationPanier" href="panier.php">Valider le panier</a>';
+                    $html .= "<a id='btnInscription' href='src/scripts/utilisateur/deconnect.php'>Se déconnecter</a>";
+                    $html .= '<a id="viderPanier" href="src/scripts/panier/viderPanier.php">Vider panier</a>';
+                    $html .= '<a id="bValidationPanier" href="src/pagePanier.php">Valider le panier</a>';
                     $html .= '</section>';
                 }
                 else{
