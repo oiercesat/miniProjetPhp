@@ -16,49 +16,47 @@ body{
 }
 
 header{
-    text-align: center;
-    padding: 2.5%;
-    margin: 0;
-    
+    padding: 20px;
     background-image: linear-gradient(to left, var(--bleu-fonce), var(--bleu-clair));
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 300px 1fr 300px;
+}
 
+a{
+    padding:10px;
+    margin:10px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--blanc);
+    border: solid 3px var(--blanc);
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--blanc);
 }
 
 #zoneLogin{
     display: flex;
     align-items: center;
 }
+#zoneLogin > a{
+    font-size: 30px;
+}
+#zoneDroite{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+}
+#zonePanier{
+    display: flex;
+}
 
 h1{
-    margin: 0%;
-
     color: var(--blanc);
     font-size: 3em;
+    text-align:center;
 }
 
-a{
-    width: 100%;
-
-    margin: 0%;
-    margin-right: 5%;
-
-    padding: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-
-    font-size: 1.5em;
-    text-decoration: none;
-    color: var(--blanc);
-
-    border: solid 3px var(--blanc);
-    border-radius: 10px;
-
-    box-shadow: 0 0 10px var(--blanc);
-}
 
 a:hover{
     background-color: var(--blanc);
@@ -74,8 +72,8 @@ main{
 #zoneCD{
     margin-top: 25px;
 
-    display:grid;
-    grid-template-columns: 1fr 1fr 1fr;   
+    display:flex;
+    flex-wrap: wrap;
 }
 
 h2{
@@ -97,23 +95,23 @@ article{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    padding: 5%;
-
-    margin: 5%;
-
+    width: 250px;
+    padding:30px;
+    margin: 20px;
     border: solid 3px var(--bleu-clair);
     border-radius: 20px;
-
-    box-shadow: 0 0 10px var(--bleu-fonce) ;
     transition: 0.2s;
-
-    height: 75%;
+    user-select: none;
 }
 
 article:hover{
     box-shadow: 0 0 20px var(--bleu-fonce) ;
     transform: scale(1.05);
+}
+
+article>h2, article>p{
+    text-align:center;
+    user-select: all;
 }
 
 .zoneAjoutPanier{
@@ -125,12 +123,7 @@ article:hover{
 }
 
 img{
-    margin-top: 5%;
-
-    width: 50%;
-    height: 50%;
-    border-radius: 10%;
-
+    width: 100%;
     box-shadow: 0 0 10px var(--bleu-fonce);
 }
 
@@ -147,27 +140,28 @@ footer>p{
     font-size: 1.5em;
 }
 
-button{
-    width: 15%;
-    height: 60%;
+.btnPanier{
+    width: 60px;
+    height: 45px;
 
-    font-size: 1.5em;
+    font-size: 30px;
     color: var(--blanc);
     background-color: var(--bleu-fonce);
     border-radius: 10px;
 
     border : none;
+    cursor :pointer;
 
 }
 
 .btnAjouterPanier{
     color: var(--blanc);
     background-color: var(--vert);
+    border-left:20px;
 }
 
 .btnRetirerPanier{
     color: var(--blanc);
     background-color: var(--rouge);
+    border-right:20px;
 }
-
-
