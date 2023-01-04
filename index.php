@@ -28,7 +28,6 @@
                 $html = "";
                 
                 if ($estConnecte){
-                    // Utilisateur connecte   
                     $html .= '<section id="zoneLogin">';
                     $html .=    "<a id='btnDeconexion' href='src/scripts/utilisateur/deconnect.php'>Se déconnecter</a>";
                     $html .= '</section>';
@@ -42,7 +41,6 @@
                     $html .= '</section">';
                 }
                 else{
-                    // Aucun utilisateur connecte
                     $html .= '<section id="zoneLogin">';
                     $html .=    "<a id='btnConexion' href='src/pageConexion.php'>Se connecter</a>";
                     $html .= '</section>';
@@ -91,6 +89,7 @@
                     $html .= '<p>'.$cdCourant->{"auteur_groupe"}."</p>";
                     $html .= '<section class="zoneAjoutPanier">';
                     if ($estConnecte){
+                        //Affichage des fonctions d ajout et de suppression seulement si connecte
                         $html .= '<button class="btnAjouterPanier btnPanier" >+</button>';
                         $html .= '<p class="nbArticlesPanier">'.$nbDansPanier.'</p>';
                         $html .= '<button class="btnRetirerPanier btnPanier" >-</button>';
