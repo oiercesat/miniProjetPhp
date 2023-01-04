@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Ubuntu&display=swap');
+
+:root{
+    --bleu-fonce:rgb(100,100,255);
+    --bleu-clair:rgb(163,163,255);
+    --blanc: rgb(255,255,255);
+    --vert: rgb(89, 250, 89);
+    --rouge: rgb(255, 106, 106);
+}
+
+body{
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Oswald', sans-serif;
+}
+
+header{
+    text-align: center;
+    padding: 2.5%;
+    margin: 0;
+    
+    background-image: linear-gradient(to left, var(--bleu-fonce), var(--bleu-clair));
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+#zoneLogin{
+    display: flex;
+    align-items: center;
+}
+
+h1{
+    margin: 0%;
+
+    color: var(--blanc);
+    font-size: 3em;
+}
+
+a{
+    width: 100%;
+
+    margin: 0%;
+    margin-right: 5%;
+
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    font-size: 1.5em;
+    text-decoration: none;
+    color: var(--blanc);
+
+    border: solid 3px var(--blanc);
+    border-radius: 10px;
+
+    box-shadow: 0 0 10px var(--blanc);
+}
+
+a:hover{
+    background-color: var(--blanc);
+    color: var(--bleu-fonce);
+    box-shadow: 0 0 20px var(--blanc);
+}
+
+main{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#zoneCD{
+    margin-top: 25px;
+
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;   
+}
+
+h2{
+    color: var(--bleu-fonce);
+    font-size: 1.5em;
+
+    margin: 0;
+    margin-top: 20px;
+}
+
+p{
+    color: var(--bleu-fonce);
+    font-size: 1em;
+}
+
+article{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 5%;
+
+    margin: 5%;
+
+    border: solid 3px var(--bleu-clair);
+    border-radius: 20px;
+
+    box-shadow: 0 0 10px var(--bleu-fonce) ;
+    transition: 0.2s;
+
+    height: 75%;
+}
+
+article:hover{
+    box-shadow: 0 0 20px var(--bleu-fonce) ;
+    transform: scale(1.05);
+}
+
+.zoneAjoutPanier{
+    width: 100%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+img{
+    margin-top: 5%;
+
+    width: 50%;
+    height: 50%;
+    border-radius: 10%;
+
+    box-shadow: 0 0 10px var(--bleu-fonce);
+}
+
+footer{
+    text-align: center;
+    padding: 2.5%;
+    margin: 0;
+
+    background-color: var(--bleu-fonce);
+}
+
+footer>p{
+    color: var(--blanc);
+    font-size: 1.5em;
+}
+
+button{
+    width: 15%;
+    height: 60%;
+
+    font-size: 1.5em;
+    color: var(--blanc);
+    background-color: var(--bleu-fonce);
+    border-radius: 10px;
+
+    border : none;
+
+}
+
+.btnAjouterPanier{
+    color: var(--blanc);
+    background-color: var(--vert);
+}
+
+.btnRetirerPanier{
+    color: var(--blanc);
+    background-color: var(--rouge);
+}
+
+
