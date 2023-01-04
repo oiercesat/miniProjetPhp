@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Ubuntu&display=swap');
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+
+    font-family: 'Oswald', sans-serif;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    border: solid 3px rgb(163, 163, 255);
+    border-radius: 20px;
+
+    padding: 20px;
+
+    height: 50%;
+    width: 25%;
+
+}
+
+p{
+    font-size: 1.5em;
+    font-weight: bold;
+
+    color: rgb(100, 100, 255);
+}
+
+input{
+    width: 75%;
+
+    margin: 10px;
+    padding: 5px;
+
+    border-radius: 5px;
+    border: solid 1px rgb(163, 163, 255);
+
+    color: rgb(100, 100, 255);
+}
+
+#submit{
+    cursor: pointer;
+
+    width: auto;
+
+    margin: 10px;
+    padding: 5px;
+
+    padding-left: 10%;
+    padding-right: 10%;
+
+    border-radius: 5px;
+    border: solid 1px rgb(163, 163, 255);
+    background-color: rgb(163, 163, 255);
+    color: white;
+
+    font-size: 1.5em;
+}
+
+#submit:hover{
+    background-color: rgb(100, 100, 255);
+
+}

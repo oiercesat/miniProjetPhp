@@ -86,7 +86,7 @@
             ?>
 
             <nav id="zoneValidationPanier">
-                <a id="bValidationPanier" href="panier.html">Valider le panier</a>
+                <a id="bValidationPanier" href="panier.php">Valider le panier</a>
             </nav>
 
             
