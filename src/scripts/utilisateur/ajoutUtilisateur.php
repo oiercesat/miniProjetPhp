@@ -10,7 +10,7 @@
             if ($_POST["password"] == $_POST["password2"]){
                 //Verification identifiant unique
                 $utilisateurDejaExistant = false;
-                $bdd = json_decode(file_get_contents("../datas/bdd.json"));
+                $bdd = json_decode(file_get_contents("../../datas/bdd.json"));
                 foreach($bdd->{"utilisateurs"} as $user => $values){
                     if ($user == $_POST["id"]){
                         $utilisateurDejaExistant = true;
@@ -21,26 +21,26 @@
                     //ajout de l'utilsateur valide dans la bdd
                     $bdd->{"utilisateurs"}->{$_POST["id"]} = array("pass"=>$_POST["password"], "panier"=>[]);
                     $newFile = json_encode($bdd);
-                    file_put_contents("../datas/bdd.json", $newFile);
+                    file_put_contents("../../datas/bdd.json", $newFile);
 
                     //Conexion
                     session_start();
                     $_SESSION["id"] = $_POST['id'];
-                    header("Location: ../pagePrincipale.php");
+                    header("Location: ../../../index.php");
                 }
                 else{
-                    header("Location: ../pageInscription.html");
+                    header("Location: ../../pageInscription.html");
                 }
             }
             else{
-                header("Location: ../pageInscription.html");
+                header("Location: ../../pageInscription.html");
             }
         }
         else{
-            header("Location: ../pageInscription.html");
+            header("Location: ../../pageInscription.html");
         }
     }
     else{
-        header("Location: ../pageInscription.html");
+        header("Location: ../../pageInscription.html");
     }
 ?>
