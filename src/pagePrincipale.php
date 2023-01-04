@@ -13,19 +13,36 @@
     <body>
         <header>
             <?php
+                // -- Initialisation page --
                 session_start();
+                if (isset($_SESSION['id'])){
+                    // Utilisateur connecte
+                    $estConnecte = true; 
+                    $user = $_SESSION['id'];    
+                }
+                else{
+                    // Aucun utilisateur connecte
+                    $estConnecte = false; 
+                    $user = null;
+                }
+               
+                // -- zone login + supprimer panier --
                 $html = '<section id="zoneLogin">';
-                if (!(isset($_SESSION['id']))){
+                if ($estConnecte){
+                    // Utilisateur connecte   
+                    $html .= "<a id='btnInscription' href='scripts/deconnect.php'>Se déconnecter</a>";
+                    $html .= '</section>';
+                    $html .= '<a id="viderPanier" href="scripts/viderPanier.php?id='.$user.'">Vider panier</a>';
+                }
+                else{
                     // Aucun utilisateur connecte
                     $html .= "<a id='btnInscription' href='pageInscription.html'>S'inscrire</a>";
                     $html .= "<a id='btnInscription' href='../index.html'>Se login</a>";
                     $html .= '</section>';
                 }
-                else{
-                    // Utilisateur connecte   
-                    $html .= "<a id='btnInscription' href='scripts/deconnect.php'>Se déconnecter</a>";
-                    $html .= '</section>';   
-                }
+                
+                
+
                 echo $html;
             ?>
             <h1>Albums</h1>
@@ -34,16 +51,9 @@
             <?php
                 $bdd = json_decode(file_get_contents("datas/bdd.json"));
                 $html = '';
-                if (!(isset($_SESSION['id'])))
+                if ($estConnecte)
                 {
-                    // Aucun utilisateur connecte
-                    $user = null;
-                }
-                else
-                {
-                    // Utilisateur connecte
-                    $user = $_SESSION['id'];    
-                    $panier = $bdd->{"utilisateurs"}->{"Nico"}->{"panier"};
+                    $panier = $bdd->{"utilisateurs"}->{$user}->{"panier"};
                 }
 
                 $nbImages = count(glob("img/pochettes/*"));
@@ -52,11 +62,13 @@
                     //Pour chaque image
                     $cdCourant = $bdd->{"cd"}[$i];
                     
+                    //Recherche du nombre d article de ce type dans le panier
+                    $nbDansPanier = 0;                      //Nombre d occurences
+
                     if ($user != null)
                     {
-                        //Recherche du nombre d article de ce type dans le panier
+                        //Si aucun utilisateur n est connecte
                         $k = 0;                                 //Indice courant de recherche
-                        $nbDansPanier = 0;                      //Nombre d occurences
                         $taillePanier = count($panier);
                         while ($k != $taillePanier) {
                             if ($panier[$k] == $i){
@@ -80,14 +92,17 @@
                     }
                     $html .= '</section></article>';
                 }
-                $html .= '</section>';
+                $html .= '</section>';                
                 
+                // BOUTON VALIDER PANIER
+                $html .= '<nav id="zoneValidationPanier">';
+                if ($estConnecte){
+                    $html .= '<a id="bValidationPanier" href="panier.php">Valider le panier</a>';
+                }
+                $html .= '</nav>';
+            
                 echo $html;
             ?>
-
-            <nav id="zoneValidationPanier">
-                <a id="bValidationPanier" href="panier.php">Valider le panier</a>
-            </nav>
 
             
         </main>
