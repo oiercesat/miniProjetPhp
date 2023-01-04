@@ -29,18 +29,18 @@
                     header("Location: ../../../index.php");
                 }
                 else{
-                    header("Location: ../../pageInscription.html");
+                    header("Location: ../../pageInscription.php?erreur=Identifiant deja utilise");
                 }
             }
             else{
-                header("Location: ../../pageInscription.html");
+                header("Location: ../../pageInscription.php?erreur=Mots de passes differents");
             }
         }
         else{
-            header("Location: ../../pageInscription.html");
+            header("Location: ../../pageInscription.php?erreur=Mot de passe trop court");
         }
     }
     else{
-        header("Location: ../../pageInscription.html");
+        header("Location: ../../pageInscription.php?erreur=Parametre de page non renseigne. On n'a besoins de l'identifiant, du mot de passe et de la confirmation du mot de passe");
     }
 ?>
