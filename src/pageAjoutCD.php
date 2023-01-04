@@ -18,7 +18,7 @@
                 if (isset($_POST["nom"])) $nom = $_POST["nom"]; else $nom = "";
                 if (isset($_POST["auteur"])) $auteur = $_POST["auteur"]; else $auteur = "";
                 if (isset($_POST["prix"])) $prix = $_POST["prix"]; else $prix = "";
-                if (isset($_FILES["image"])) $image = $_FILES["image"]; else $image = null;
+                if ($_FILES["image"]["name"] != "") $image = $_FILES["image"]; else $image = null;
 
                 $html = '';
 
@@ -61,15 +61,18 @@
                 $html .= '<input type=file name="image">';
                 $html .= '<input type="submit" value="Ajouter" id="submit">';
 
-                if (!$infosValides and 
-                    ($genre != "" or  $nom != "" or $auteur != "" or $prix != "" or $image != null)){
+                $champsNonVides = ($genre != "" or  $nom != "" or $auteur != "" or $prix != "" or $image != null);
+                if (!$infosValides and $champsNonVides){
                     //S il manque un ou plusieurs champs
                     $html .= "<label>Manque d'information !</label>";
                 }
-                else if (!$imageValide){
-                    //Le format d image est mauvais
-                    $html .= "<label>On n'accepte que les png !</label>";
+                else if ($champsNonVides){
+                    if (!$imageValide){
+                        //Le format d image est mauvais
+                        $html .= "<label>On n'accepte que les png !</label>";
+                    }
                 }
+                
                 
 
                 echo $html;
