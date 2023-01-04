@@ -12,6 +12,7 @@
     </head>
     <body>
         <header>
+            <h1>Albums</h1>
             <?php
                 // -- Initialisation page --
                 session_start();
@@ -31,8 +32,9 @@
                 if ($estConnecte){
                     // Utilisateur connecte   
                     $html .= "<a id='btnInscription' href='src/scripts/utilisateur/deconnect.php'>Se déconnecter</a>";
-                    $html .= '</section>';
                     $html .= '<a id="viderPanier" href="src/scripts/panier/viderPanier.php?id='.$user.'">Vider panier</a>';
+                    $html .= '<a id="bValidationPanier" href="src/pagePanier.php">Valider le panier</a>';
+                    $html .= '</section>';
                 }
                 else{
                     // Aucun utilisateur connecte
@@ -40,12 +42,9 @@
                     $html .= "<a id='btnInscription' href='src/pageConexion.html'>Se connecter</a>";
                     $html .= '</section>';
                 }
-                
-                
 
                 echo $html;
             ?>
-            <h1>Albums</h1>
         </header>
         <main>
             <?php
@@ -81,25 +80,19 @@
                     
                     
                     $html .= '<article id='.$i.'>';
-                    $html .= '<img src="src/scripts/generateurCD.php?nomImage='.$cdCourant->{"nom_image"}.'">';                  
+                    $html .= '<img src=src/scripts/generateurCD.php?nomImage='.$cdCourant->{"nom_image"}.'>';
                     $html .= '<h2>'.$cdCourant->{"titre"}."</h2>";
                     $html .= '<p>'.$cdCourant->{"auteur_groupe"}."</p>";
                     $html .= '<section class="zoneAjoutPanier">';
                     if ($user != null){
-                        $html .= '<button class="btnAjouterPanier btnPanier" >+</button>';    
+                        $html .= '<button class="btnAjouterPanier btnPanier" >+</button>';
                         $html .= '<p class="nbArticlesPanier">'.$nbDansPanier.'</p>';
-                        $html .= '<button class="btnRetirerPanier btnPanier" >-</button>';   
+                        $html .= '<button class="btnRetirerPanier btnPanier" >-</button>';
                     }
                     $html .= '</section></article>';
                 }
                 $html .= '</section>';                
                 
-                // BOUTON VALIDER PANIER
-                $html .= '<nav id="zoneValidationPanier">';
-                if ($estConnecte){
-                    $html .= '<a id="bValidationPanier" href="src/pagePanier.php">Valider le panier</a>';
-                }
-                $html .= '</nav>';
             
                 echo $html;
             ?>
