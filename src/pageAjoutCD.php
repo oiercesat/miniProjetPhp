@@ -11,40 +11,49 @@
     <a href="../index.php">Page principale</a>
     <article>
         <h1>Votre album</h1>
-        <form action="pageAjoutCD.php" method="POST">
+        <form action="pageAjoutCD.php" method="POST" enctype= multipart/form-data>
             <?php
+                //Sauvegarde des valeurs entrees lors du dernier submit
                 if (isset($_POST["genre"])) $genre = $_POST["genre"]; else $genre = "";
                 if (isset($_POST["nom"])) $nom = $_POST["nom"]; else $nom = "";
                 if (isset($_POST["auteur"])) $auteur = $_POST["auteur"]; else $auteur = "";
                 if (isset($_POST["prix"])) $prix = $_POST["prix"]; else $prix = "";
-                if (isset($_POST["image"])) $image = $_POST["image"]; else $image = "";
+                if (isset($_FILES["image"])) $image = $_FILES["image"]; else $image = null;
 
                 $html = '';
 
                 //Verification saisies
-                $infosValides = ($genre != "" and  $nom != "" and $auteur != "" and $prix != "" and $image != "");
+                $infosValides = ($genre != "" and  $nom != "" and $auteur != "" and $prix != "" and $image != null);
 
                 if ($infosValides){
-                    //Ajout de l album dans la bdd
-                    $lienDonnees = "datas/bdd.json";
-                    $bdd = json_decode(file_get_contents($lienDonnees));
-                    array_push($bdd->{"cd"}, array("genre"=>$genre,"titre"=>$nom,"auteur_groupe"=>$auteur,"prix"=>intval($prix),"nom_image"=>$image));
-                    file_put_contents($lienDonnees, json_encode($bdd));
+                    $imageValide = ($image["type"] == "image/png");
+                    if ($imageValide)
+                    {
+                        //Ajout de l album dans la bdd
+                        $lienDonnees = "datas/bdd.json";
+                        $bdd = json_decode(file_get_contents($lienDonnees));
+                        array_push($bdd->{"cd"}, array("genre"=>$genre,"titre"=>$nom,"auteur_groupe"=>$auteur,"prix"=>intval($prix),"nom_image"=>$image["name"]));
+                        file_put_contents($lienDonnees, json_encode($bdd));
 
-                    //Fabrication de la photo
-                    imagepng(imagecreatetruecolor(150, 150), "datas/img/pochettes/".$image);
+                        //Fabrication de la photo
+                        $emplacement = $image['tmp_name'];
+                        $destination = 'datas/img/pochettes/'.$image['name'];
+                        move_uploaded_file($emplacement, $destination);
+                        
 
-                    //Remise a 0 des valeurs
-                    $genre = "";
-                    $nom = "";
-                    $auteur = "";
-                    $prix = "";
-                    $image = "";
+                        //Remise a 0 des valeurs
+                        $genre = "";
+                        $nom = "";
+                        $auteur = "";
+                        $prix = "";
+                        $image = null;
 
-                    //Message de validation
-                    $html .= '<label>Album bien créé !</label>';
+                        //Message de validation
+                        $html .= '<label>Album bien créé !</label>';
+                    }
                 }
 
+                //Formulaire
                 $html .= '<input type="text" name="genre" placeholder="Genre (Rap,Rock..)" value='.$genre.'>';
                 $html .= '<input type="text" name="nom" placeholder="Nom" value='.$nom.'>';
                 $html .= '<input type="text" name="auteur" placeholder="Auteur" value='.$auteur.'>';
@@ -53,10 +62,15 @@
                 $html .= '<input type="submit" value="Ajouter" id="submit">';
 
                 if (!$infosValides and 
-                    ($genre != "" or  $nom != "" or $auteur != "" or $prix != "" or $image != "")){
+                    ($genre != "" or  $nom != "" or $auteur != "" or $prix != "" or $image != null)){
                     //S il manque un ou plusieurs champs
                     $html .= "<label>Manque d'information !</label>";
                 }
+                else if (!$imageValide){
+                    //Le format d image est mauvais
+                    $html .= "<label>On n'accepte que les png !</label>";
+                }
+                
 
                 echo $html;
             ?>
