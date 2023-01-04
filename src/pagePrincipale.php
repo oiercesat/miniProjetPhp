@@ -25,7 +25,6 @@
                     $estConnecte = false; 
                     $user = null;
                 }
-               
                 // -- zone login + supprimer panier --
                 $html = '<section id="zoneLogin">';
                 if ($estConnecte){
@@ -108,6 +107,39 @@
         </main>
         <footer>
 
-        </footer>
-    </body>
+        $html = '<section id="zoneCD">';
+        for ($i = 0; $i < $nbImages; $i++) {
+            $cdCourant = $bdd->{"cd"}[$i];
+
+            //Recherche du nombre d article de ce type dans le panier
+            $k = 0;                                 //Indice courant de recherche
+            $nbDansPanier = 0;                      //Nombre d occurences
+            $taillePanier = count($panier);
+            while ($k != $taillePanier) {
+                if ($panier[$k] == $i) {
+                    //L indice pointe sur l element recherche
+                    $nbDansPanier += 1;
+                }
+                $k += 1;
+            }
+
+            $html .= '<article id=' . $i . '>';
+            $html .= '<img src=scripts/generateurCD.php?cheminImage=' . $cdCourant->{"image"} . '>';
+            $html .= '<h2>' . $cdCourant->{"titre"} . "</h2>";
+            $html .= '<p>' . $cdCourant->{"auteur_groupe"} . "</p>";
+            $html .= '<section class="zoneAjoutPanier">';
+            $html .= '<button class="btnAjouterPanier btnPanier" >+</button>';
+            $html .= '<p class="nbArticlesPanier">' . $nbDansPanier . '</p>';
+            $html .= '<button class="btnRetirerPanier btnPanier" >-</button>';
+            $html .= '</section></article>';
+        }
+        $html .= '</section>';
+        echo $html;
+        ?>
+
+    </main>
+    <footer>
+        <p>Projet php réalisé par Nicolas Delahaie et Oier Cesat</p>
+    </footer>
+</body>
 </html>
