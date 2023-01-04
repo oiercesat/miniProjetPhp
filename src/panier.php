@@ -35,24 +35,26 @@ $panier = $bdd->{"utilisateurs"}->{$id}->{"panier"};
         <h1>Mon panier</h1>
         <?php
 
-        for ($i = 0; $i < count($panier); $i++) {
-            if ($panier[$i] != "0") {
-                echo "<article>";
-                echo "<img src='" . $cd[$i]->{"image"} . "'>";
-                echo "<section>";
-                echo "<h2>Titre : " . $cd[$i]->{"titre"} . "</h2>";
-                echo "<h3> Auteur : " . $cd[$i]->{"auteur_groupe"} . "</h3>";
-                echo "<p>Prix : " . $cd[$i]->{"prix"} . " €</p>";
-                echo "<br>";
-                echo "<p>Quantité : " . $panier[$i] . "</p>";
-                echo "</section>";
-                echo "</article>";
-            }
+        $cdPanier= array_count_values($panier);
+
+        foreach($cdPanier as $key => $value){
+            $quantite = $value;
+            $rangCD = $key;
+            echo "<article>";
+            echo "<img src='" . $cd[$rangCD]->{"image"} . "'>";
+            echo "<section>";
+            echo "<h2>Titre : " . $cd[$rangCD]->{"titre"} . "</h2>";
+            echo "<h3> Auteur : " . $cd[$rangCD]->{"auteur_groupe"} . "</h3>";
+            echo "<p>Prix : " . $cd[$rangCD]->{"prix"} . " €</p>";
+            echo "<br>";
+            echo "<p>Quantité : " .$quantite . "</p>";
+            echo "</section>";
+            echo "</article>";
         }
         ?>
 
-        <a href="./pagePaiement.php" id="paiement">Passer au payement</a>
-    </main>
+<a href="./pagePaiement.php" id="paiement">Passer au payement</a>
+</main>
 </body>
 
 </html>
