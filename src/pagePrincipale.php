@@ -31,7 +31,7 @@
                 if ($estConnecte){
                     // Utilisateur connecte   
                     $html .= "<a id='btnInscription' href='scripts/deconnect.php'>Se déconnecter</a>";
-                    $html .= '<a id="viderPanier" href="scripts/viderPanier.php?id='.$user.'">Vider panier</a>';
+                    $html .= '<a id="viderPanier" href="scripts/viderPanier.php">Vider panier</a>';
                     $html .= '<a id="bValidationPanier" href="panier.php">Valider le panier</a>';
                     $html .= '</section>';
                     

@@ -1,10 +1,10 @@
 <?php
-    //id : identifiant de l'utilisateur dont on doit supprimer le panier
-    echo $_GET["id"];
-    if (isset($_GET["id"])){
+    session_start();
+    $id=$_SESSION['id'];
+    if (isset($id)){
         $lienDonnees = "../datas/bdd.json";
         $bdd = json_decode(file_get_contents($lienDonnees));
-        $bdd->{"utilisateurs"}->{$_GET["id"]}->{"panier"} = array();
+        $bdd->{"utilisateurs"}->{$id}->{"panier"} = array();
         file_put_contents($lienDonnees, json_encode($bdd));
     }
     else{
