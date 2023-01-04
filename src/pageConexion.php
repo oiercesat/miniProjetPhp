@@ -1,3 +1,9 @@
+<?php
+    if (isset($_GET['erreur'])) {
+        $erreur = $_GET['erreur'];
+    }
+    ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -13,8 +19,18 @@
         <h1>Connectez-vous</h1>
         <form action="scripts/utilisateur/verifLogin.php" method="POST">
             <input type="text" name="id" placeholder="Votre id">
+            <?php
+            if (isset($erreur)) {
+                echo "<p class='erreur'>$erreur</p>";
+            }
+            ?>
             <input type="password" name="password" placeholder="Votre Mot de passe ">
-            <a href="pageInscription.html">S'inscrire</a>
+            <?php
+            if (isset($erreur)) {
+                echo "<p class='erreur'>$erreur</p>";
+            }
+            ?>
+            <a href="pageInscription.php">S'inscrire</a>
             <input type="submit" value="Connexion" id="submit">
         </form>
     </article>

@@ -12,13 +12,13 @@ if (isset($_POST['id']) && isset($_POST['password'])) {
         }
     }
     
-    header("Location: ../../pageConexion.html");
+    header("Location: ../../pageConexion.php?erreur=Identifiant ou mot de passe incorrect");
     exit();
 
 }
 
 else {
-    header("Location: ../../pageConexion.html");
+    header("Location: ../../pageConexion.php?erreur=Parametre de page non renseigne. On n'a besoins de l'identifiant et du mot de passe");
     exit();
 }
 
