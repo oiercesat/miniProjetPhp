@@ -18,7 +18,22 @@
                 if (isset($_POST["nom"])) $nom = $_POST["nom"]; else $nom = "";
                 if (isset($_POST["auteur"])) $auteur = $_POST["auteur"]; else $auteur = "";
                 if (isset($_POST["prix"])) $prix = $_POST["prix"]; else $prix = "";
-                if ($_FILES["image"]["name"] != "") $image = $_FILES["image"]; else $image = null;
+
+                if (isset($_FILES["image"])){
+                    if ($_FILES["image"]["name"] != ""){
+                        $image = $_FILES["image"];
+                    }
+                    else {
+                        //Image inexistante
+                        $image = null;
+                    }
+                }  
+                else{
+                    //Image inexistante
+                    $image = null;
+                }
+                
+                
 
                 $html = '';
 
