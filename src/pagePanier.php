@@ -15,7 +15,7 @@ $panier = $bdd->{"utilisateurs"}->{$id}->{"panier"};
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../src/styles/pagePanier.css">
+    <link rel="stylesheet" href="styles/pagePanier.css">
     <title>Document</title>
 </head>
 
@@ -24,10 +24,10 @@ $panier = $bdd->{"utilisateurs"}->{$id}->{"panier"};
         <span>Mon panier</span>
         <ul>
             <li>
-                <a href="pagePrincipale.php">Accueil</a>
+                <a href="../index.php">Accueil</a>
             </li>
             <li>
-                <a href="./../index.html">Deconnexion</a>
+                <a href="scripts/deconnect.html">Deconnexion</a>
             </li>
         </ul>
     </header>
@@ -51,7 +51,7 @@ $panier = $bdd->{"utilisateurs"}->{$id}->{"panier"};
         }
         ?>
 
-        <a href="./pagePaiement.php" id="paiement">Passer au payement</a>
+        <a href="./pagePaiement.php" id="paiement">Passer au paiement</a>
     </main>
 </body>
 
