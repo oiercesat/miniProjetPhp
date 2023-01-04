@@ -35,7 +35,7 @@ function ajouterPanier(elmt, action)
 function majPanier(action, cdId)
 {
     var xhr = new XMLHttpRequest();    
-    xhr.open("POST", "scripts/majArticlesPanier.php", true);
+    xhr.open("POST", "src/scripts/panier/majArticlesPanier.php", true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send('id='+cdId+'&action='+action);
 }

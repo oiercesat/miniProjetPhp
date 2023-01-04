@@ -6,8 +6,8 @@
         <title>Albums</title>
         <meta name="description" content="Page principale avec chaque album">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="styles/pagePrincipale.css">
-        <script src="scripts/modifPanier.js" async defer></script>
+        <link rel="stylesheet" href="src/styles/index.css">
+        <script src="src/scripts/panier/modifPanier.js" async defer></script>
         
     </head>
     <body>
@@ -34,12 +34,11 @@
                     $html .= '<a id="viderPanier" href="scripts/viderPanier.php">Vider panier</a>';
                     $html .= '<a id="bValidationPanier" href="panier.php">Valider le panier</a>';
                     $html .= '</section>';
-                    
                 }
                 else{
                     // Aucun utilisateur connecte
-                    $html .= "<a id='btnInscription' href='pageInscription.html'>S'inscrire</a>";
-                    $html .= "<a id='btnInscription' href='../index.html'>Se login</a>";
+                    $html .= "<a id='btnInscription' href='src/pageInscription.html'>S'inscrire</a>";
+                    $html .= "<a id='btnInscription' href='src/pageConexion.html'>Se connecter</a>";
                     $html .= '</section>';
                 }
 
@@ -48,14 +47,14 @@
         </header>
         <main>
             <?php
-                $bdd = json_decode(file_get_contents("datas/bdd.json"));
+                $bdd = json_decode(file_get_contents("src/datas/bdd.json"));
                 $html = '';
                 if ($estConnecte)
                 {
                     $panier = $bdd->{"utilisateurs"}->{$user}->{"panier"};
                 }
 
-                $nbImages = count(glob("img/pochettes/*"));
+                $nbImages = count(glob("src/datas/img/pochettes/*"));
                 $html .= '<section id="zoneCD">';            
                 for ($i=0; $i < $nbImages; $i++) { 
                     //Pour chaque image
@@ -80,26 +79,27 @@
                     
                     
                     $html .= '<article id='.$i.'>';
-                    $html .= '<img src=scripts/generateurCD.php?cheminImage='.$cdCourant->{"image"}.'>';                  
+                    $html .= '<img src=src/scripts/generateurCD.php?nomImage='.$cdCourant->{"nom_image"}.'>';
                     $html .= '<h2>'.$cdCourant->{"titre"}."</h2>";
                     $html .= '<p>'.$cdCourant->{"auteur_groupe"}."</p>";
                     $html .= '<section class="zoneAjoutPanier">';
                     if ($user != null){
-                        $html .= '<button class="btnAjouterPanier btnPanier" >+</button>';    
+                        $html .= '<button class="btnAjouterPanier btnPanier" >+</button>';
                         $html .= '<p class="nbArticlesPanier">'.$nbDansPanier.'</p>';
-                        $html .= '<button class="btnRetirerPanier btnPanier" >-</button>';   
+                        $html .= '<button class="btnRetirerPanier btnPanier" >-</button>';
                     }
                     $html .= '</section></article>';
                 }
-                $html .= '</section>';              
-
+                $html .= '</section>';                
+                
+            
                 echo $html;
             ?>
 
             
         </main>
-    <footer>
-        <p>Projet php réalisé par Nicolas Delahaie et Oier Cesat</p>
-    </footer>
-</body>
+        <footer>
+
+        </footer>
+    </body>
 </html>

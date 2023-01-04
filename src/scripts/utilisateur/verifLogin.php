@@ -1,6 +1,5 @@
 <?php
-
-$bdd= json_decode(file_get_contents("./../datas/bdd.json"));
+$bdd= json_decode(file_get_contents("../../datas/bdd.json"));
 $utilisateurs = $bdd->{"utilisateurs"};
 
 if (isset($_POST['id']) && isset($_POST['password'])) {    
@@ -8,19 +7,20 @@ if (isset($_POST['id']) && isset($_POST['password'])) {
         if ($utilisateur == $_POST['id'] && $informations->{"pass"} == $_POST['password']) {
             session_start();
             $_SESSION["id"] = $_POST['id'];
-            header("Location: ./../pagePrincipale.php");
+            header("Location: ../../../index.php");
             exit();
         }
     }
     
-    header("Location: ./../../index.html");
+    header("Location: ../../pageConexion.html");
     exit();
 
 }
 
 else {
-    header("Location: ./../../index.html");
+    header("Location: ../../pageConexion.html");
     exit();
 }
 
 
+?>

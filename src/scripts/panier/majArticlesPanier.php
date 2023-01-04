@@ -11,7 +11,7 @@
         {
             //L utilisateur est bien connecte
             //Si les deux parametres sont bien definis
-            $lienDonnees = "../datas/bdd.json";
+            $lienDonnees = "../../datas/bdd.json";
             $bdd = json_decode(file_get_contents($lienDonnees));
             $idArticle = (int)$_POST["id"];
             $action = $_POST["action"];
