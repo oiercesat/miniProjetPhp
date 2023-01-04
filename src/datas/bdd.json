@@ -6,23 +6,10 @@
         },
         "Nico": {
             "pass": "kouto",
-<<<<<<< HEAD
             "panier": []
-=======
-            "panier": [
-                "0",
-                "0",
-                "0",
-                "2",
-                "4",
-                "2",
-                "0"
-            ]
->>>>>>> 066c6c363648664423db10965862dc95c43415e1
         },
         "Ohyeah": {
             "pass": "solide",
-<<<<<<< HEAD
             "panier": []
         },
         "Robin": {
@@ -32,17 +19,6 @@
         "coucou": {
             "pass": "test",
             "panier": []
-=======
-            "panier": [
-                "0",
-                "5",
-                "4",
-                "0",
-                "0",
-                "2",
-                "0"
-            ]
->>>>>>> 066c6c363648664423db10965862dc95c43415e1
         }
     },
     "cd": [
@@ -69,7 +45,7 @@
         },
         {
             "genre": "Rap",
-            "titre": "TMax sur la bonne m\u00e8re",
+            "titre": "TMax sur la bonne mere",
             "auteur_groupe": "Jul le S",
             "prix": 51.43,
             "image": "img\/pochettes\/TMax_sur_la_bonne_mere.png"
