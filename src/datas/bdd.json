@@ -1,21 +1,26 @@
 {
-    "utilisateurs": [
-        {
-            "id": "root",
+    "utilisateurs": {
+        "root": {
             "pass": "root",
             "panier": []
         },
-        {
-            "id": "Nico",
+        "Nico": {
             "pass": "kouto",
             "panier": []
         },
-        {
-            "id": "Ohyeah",
+        "Ohyeah": {
             "pass": "solide",
             "panier": []
+        },
+        "Robin": {
+            "pass": "Allaw",
+            "panier": []
+        },
+        "coucou": {
+            "pass": "test",
+            "panier": []
         }
-    ],
+    },
     "cd": [
         {
             "genre": "Sombre",
